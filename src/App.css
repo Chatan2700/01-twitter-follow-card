@@ -3,7 +3,8 @@
   align-items: center;
   color: #fff;
   font-size: .8rem;
-  justify-content: space-between;
+  /* This space evenly the contents within a element very useful */
+  justify-content: space-between; 
 }
 
 .tw-followCard-header {

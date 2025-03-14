@@ -1,23 +1,34 @@
 import './App.css'
 import './index.css'
+import TwitterFollowCard from './assets/components/TwitterFollowCard';
 
 function App() {
 
   return (
     <>
-      <article>
-        <header>
-          <img src="https://pbs.twimg.com/profile_images/1696953461412442112/nMjG1ZdU_400x400.jpg" alt="Dribble avatar" />
-          <div>
-            <strong>Dribbble</strong>
-            <span>@dribbble</span>
-          </div>
-        </header>
+      <section className='App'>
+        <TwitterFollowCard
+          userName={'dribbble'}
+          isFollowing
+        >
+          Dribbble
+        </TwitterFollowCard>
 
-        <aside>
-          <button>Follow</button>
-        </aside>
-      </article>
+        <TwitterFollowCard
+          userName={'chatan_rios'}
+          isFollowing={false}
+        >
+          Sebastian
+        </TwitterFollowCard>
+
+        <TwitterFollowCard
+          userName={'Meta'}
+          isFollowing={false}
+        >
+          Meta
+        </TwitterFollowCard>
+
+      </section>
     </>
   )
 }
