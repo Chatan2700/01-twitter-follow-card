@@ -9,7 +9,7 @@ function App() {
       <section className='App'>
         <TwitterFollowCard
           userName={'dribbble'}
-          isFollowing
+
         >
           Dribbble
         </TwitterFollowCard>

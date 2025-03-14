@@ -1,18 +1,27 @@
 import React from 'react'
+import { useState } from 'react';
 
-const TwitterFollowCard = ({ children, userName = 'unknown', isFollowing }) => {
 
-  let profilePicture = `https://unavatar.io/x/${userName}`
-  userName === 'unknown' ? profilePicture = `https://unavatar.io/x/x` : profilePicture
+const TwitterFollowCard = ({ children, userName = 'unknown' }) => {
 
-  console.log(isFollowing)
+  const [isFollowing, setIsFollowing] = useState(false)
+
+  const btnText = isFollowing ? 'Following' : 'Follow'
+  const buttonClassName = isFollowing
+    ? 'tw-followCard-button is-following'
+    : 'tw-followCard-button '
+
+  const handleClick = () => {
+    setIsFollowing(!isFollowing)
+  }
 
   return (
     <article className='tw-followCard'>
       <header className='tw-followCard-header'>
         <img
           className='tw-followCard-avatar'
-          src={profilePicture}
+          src={userName === 'unknown' ? `https://unavatar.io/x/x` : `https://unavatar.io/x/${userName}`
+          }
           alt={`${userName} avatar`} />
         <div className='tw-followCard-info'>
           <strong>{children}</strong>
@@ -21,7 +30,7 @@ const TwitterFollowCard = ({ children, userName = 'unknown', isFollowing }) => {
       </header>
 
       <aside>
-        <button className='tw-followCard-button'>Follow</button>
+        <button className={buttonClassName} onClick={handleClick}>{btnText}</button>
       </aside>
     </article>
   )
